@@ -1,12 +1,15 @@
 {
-  "name": "myfastestpace-backend",
+  "name": "myfastestpace-server",
   "version": "1.0.0",
   "description": "backend for my-fastest-pace pace tracking app",
   "main": "server.js",
+  "engines": {
+    "node": "12.13.1"
+  },
   "scripts": {
     "dev": "nodemon server.js"
   },
-  "author": "",
+  "author": "Andy Camann",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
