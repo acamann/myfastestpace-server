@@ -26,6 +26,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 app.use(cors());
+app.use(checkJwt);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -38,11 +39,8 @@ connection.once('open', () => {
     console.log("MongoDB database connection established succesfully");
 })
 
-// add protected endpoint for auth0 to prevent unauthorized requests
-app.get("/api/external", checkJwt, (req, res) => {
-    res.send({
-        msg: "Your access token was successfully validated!"
-    });
+app.get("/authorized", function (req, res) {
+    res.send('secured resource');
 });
 
 // Error handler for Auth0
